@@ -14,6 +14,7 @@ Obs: Vai existir algumas diferenças visuais, pois o emulador é de um modelo di
 
 ### A tela já esteve assim:
 
-* ![image](https://github.com/pygaudiello/Tela-de-Login-Tok/assets/126681785/900fde03-24cf-436c-a9f3-47540943be99)
-* ![image](https://github.com/pygaudiello/Tela-de-Login-Tok/assets/126681785/9a3d3970-0af1-4387-b289-159e10d54340)
+![image](https://github.com/pygaudiello/Tela-de-Login-Tok/assets/126681785/900fde03-24cf-436c-a9f3-47540943be99)
+
+![image](https://github.com/pygaudiello/Tela-de-Login-Tok/assets/126681785/9a3d3970-0af1-4387-b289-159e10d54340)
 
