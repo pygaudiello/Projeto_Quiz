@@ -9,4 +9,4 @@ Estou aprendendo Flutter e decidi fazer a tela de Login do Aplicativo da Tok&Sto
 
 ### Comparação entre a Original e a Desenvolvida por mim
 
-![image](https://github.com/pygaudiello/Tela-de-Login-Tok/assets/126681785/363edccd-399c-4eda-bd75-8b56ba232844) ![image](https://github.com/pygaudiello/Tela-de-Login-da-Tok-Stok/assets/126681785/354d2d11-f7cf-4e2c-a616-e5dd7f4de0b2)
+![image](https://github.com/pygaudiello/Tela-de-Login-Tok/assets/126681785/363edccd-399c-4eda-bd75-8b56ba232844) ![image](https://github.com/pygaudiello/Tela-de-Login-Tok/assets/126681785/d569d586-338f-4e21-a293-811e6701f1cb)
