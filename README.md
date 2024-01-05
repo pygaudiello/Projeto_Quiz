@@ -26,14 +26,18 @@ Observação: A escolha da cor foi pensada no Toy Golden Freddy.
 ### Principais pontos do código
 
 * Lógica do Resultado:
+  
   ![image](https://github.com/pygaudiello/Projeto_Quiz/assets/126681785/bac4e84f-1f0b-4604-b7fa-39aebbed02ae)
 
 * Perguntas com Pontuação nas Respostas Corretas:
+  
   ![image](https://github.com/pygaudiello/Projeto_Quiz/assets/126681785/af9291ee-0241-4ab6-85db-1d3a192dea61)
 
 * O código constrói uma AppBar estilizada e exibe dinamicamente um widget Questionario para perguntas ou Resultado quando o quiz termina:
+  
   ![image](https://github.com/pygaudiello/Projeto_Quiz/assets/126681785/d5be3e9d-e9fa-46c4-b9d1-8795bd24dbb8)
 
 * Ajuste das Alternativas:
+  
   ![image](https://github.com/pygaudiello/Projeto_Quiz/assets/126681785/d198713a-9440-4c62-bf06-75b94eb1c673)
 
