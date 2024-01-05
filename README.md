@@ -4,6 +4,8 @@ Estou aprendendo Flutter e meu primeiro projeto foi um Quiz de FNAF. Apesar de s
 
 ## Imagens do resultado final
 
+Observação: A escolha da cor foi pensada no Toy Golden Freddy.
+
 ### Questões
 
 ![image](https://github.com/pygaudiello/Projeto_Quiz/assets/126681785/32fb9f58-e204-432c-a8bf-cd0aca4331c9)
@@ -20,4 +22,18 @@ Estou aprendendo Flutter e meu primeiro projeto foi um Quiz de FNAF. Apesar de s
 ![image](https://github.com/pygaudiello/Projeto_Quiz/assets/126681785/5b4ada84-0fbd-4be1-98e0-af6ec256b2fe)
 ![image](https://github.com/pygaudiello/Projeto_Quiz/assets/126681785/4f86e283-8971-4dfa-a906-0dcbf86d5879)
 ![image](https://github.com/pygaudiello/Projeto_Quiz/assets/126681785/305dd582-4f29-4df5-bcba-b1655bf35c14)
+
+### Principais pontos do código
+
+* Lógica do Resultado:
+  ![image](https://github.com/pygaudiello/Projeto_Quiz/assets/126681785/bac4e84f-1f0b-4604-b7fa-39aebbed02ae)
+
+* Perguntas com Pontuação nas Respostas Corretas:
+  ![image](https://github.com/pygaudiello/Projeto_Quiz/assets/126681785/af9291ee-0241-4ab6-85db-1d3a192dea61)
+
+* O código constrói uma AppBar estilizada e exibe dinamicamente um widget Questionario para perguntas ou Resultado quando o quiz termina:
+  ![image](https://github.com/pygaudiello/Projeto_Quiz/assets/126681785/d5be3e9d-e9fa-46c4-b9d1-8795bd24dbb8)
+
+* Ajuste das Alternativas:
+  ![image](https://github.com/pygaudiello/Projeto_Quiz/assets/126681785/d198713a-9440-4c62-bf06-75b94eb1c673)
 
