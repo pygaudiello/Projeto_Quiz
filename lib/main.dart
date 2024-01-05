@@ -1,188 +1,114 @@
-// ignore_for_file: avoid_print, must_be_immutable
-
 import 'package:flutter/material.dart';
 
+import './resultado.dart';
+import 'questionario.dart';
+
 void main() {
-  runApp(Aplicativo());
+  runApp(const PerguntaAPP());
 }
 
-class Aplicativo extends StatelessWidget {
-  Aplicativo({Key? key}) : super(key: key);
+class _PerguntaAppState extends State<PerguntaAPP> {
+  var _perguntaSelecionada = 0;
+  var _pontuacaoTotal = 0;
 
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _senhaController = TextEditingController();
-  bool _mostrarSenha = false;
+  final List<Map<String, Object>> _perguntas = const [
+    {
+      'texto': 'Onde se passa o jogo do FNAF?', //0
+      'respostas': [
+        {'texto': 'Hamburgueria', 'pontuacao': 0},
+        {'texto': 'Shopping', 'pontuacao': 0},
+        {'texto': 'Vendinha de Hot Dog', 'pontuacao': 0},
+        {'texto': 'Pizzaria', 'pontuacao': 1},
+        {'texto': 'Loja de Roupas', 'pontuacao': 0},
+      ],
+    },
+    {
+      'texto': 'Qual o nome do Animatronic de Raposa?',
+      'respostas': [
+        {'texto': 'Chica', 'pontuacao': 0},
+        {'texto': 'Foxy', 'pontuacao': 1},
+        {'texto': 'Bonnie', 'pontuacao': 0},
+        {'texto': 'Fred', 'pontuacao': 0},
+        {'texto': 'Balloon Boy', 'pontuacao': 0},
+      ],
+    },
+    {
+      'texto': 'No jogo qual é a profissao do jogador?',
+      'respostas': [
+        {'texto': 'Pizzaiolo', 'pontuacao': 0},
+        {'texto': 'Garçom', 'pontuacao': 0},
+        {'texto': 'Guarda Noturno', 'pontuacao': 1},
+        {'texto': 'Zelador', 'pontuacao': 0},
+        {'texto': 'Bombeiro', 'pontuacao': 0},
+      ],
+    },
+    {
+      'texto': 'Qual foi a primeira vítima de William Afton?',
+      'respostas': [
+        {'texto': 'Charlote', 'pontuacao': 1},
+        {'texto': 'Suzie', 'pontuacao': 0},
+        {'texto': 'Maddie', 'pontuacao': 0},
+        {'texto': 'Cassidy', 'pontuacao': 0},
+        {'texto': 'Criança Chorona', 'pontuacao': 0},
+      ],
+    },
+    {
+      'texto': 'Qual alma está no Golden Fredddy',
+      'respostas': [
+        {'texto': 'Charlote', 'pontuacao': 0},
+        {'texto': 'Criança Chorona', 'pontuacao': 0},
+        {'texto': 'Anna', 'pontuacao': 0},
+        {'texto': 'Suzie', 'pontuacao': 0},
+        {'texto': 'Cassidy', 'pontuacao': 1},
+      ],
+    },
+  ];
+
+  void _responder(int pontuacao) {
+    if (temPerguntaSelecionada) {
+      setState(() {
+        _perguntaSelecionada++;
+        _pontuacaoTotal += pontuacao;
+      });
+    }
+  }
+
+  void _reiniciarQuestionario() {
+    setState(() {
+      _perguntaSelecionada = 0;
+      _pontuacaoTotal = 0;
+    });
+  }
+
+  bool get temPerguntaSelecionada {
+    return _perguntaSelecionada < _perguntas.length;
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 24,
-            ),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 12.0),
-                      child: TextButton(
-                        onPressed: () {
-                          print('Clicado');
-                        },
-                        child: const Text(
-                          'CADASTRE-SE',
-                          style: TextStyle(
-                            fontFamily: 'Margem',
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 0, 105, 55),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const Spacer(),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Entrar',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontFamily: 'Margem',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    const Text(
-                      'Acesse agora sua conta para acompanhar seus pedidos, ter ofertas exclusivas e muito mais.',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'Margem',
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 20),
-                    _bordaEmail(_emailController, 'Digite seu e-mail'),
-                    const SizedBox(height: 20),
-                    _bordaSenha(_senhaController, 'Digite sua senha'),
-                    const SizedBox(height: 20),
-                    _criarBotaoEsqueciSenha(),
-                    const SizedBox(height: 20),
-                    _criarBotao('ENTRAR', const Color.fromARGB(255, 0, 105, 55),
-                        () {
-                      print('Entrar Clicado');
-                    }),
-                  ],
-                ),
-                const Spacer(flex: 2),
-              ],
-            ),
-          ),
+        appBar: AppBar(
+          title: const Center(child: Text("Quiz de Five Nights At Freddy's")),
+          backgroundColor:
+              const Color.fromARGB(255, 207, 176, 0), // Cor da AppBar
         ),
+        body: temPerguntaSelecionada
+            ? Questionario(
+                perguntas: _perguntas,
+                perguntaSelecionada: _perguntaSelecionada,
+                quandoresponder: _responder)
+            : Resultado(_pontuacaoTotal, _reiniciarQuestionario),
       ),
     );
   }
+}
 
-  Widget _bordaEmail(TextEditingController controller, String label) {
-    return _bordaa(
-      child: TextField(
-        controller: controller,
-        decoration: InputDecoration(
-          labelText: label,
-          border: InputBorder.none,
-        ),
-      ),
-    );
+class PerguntaAPP extends StatefulWidget {
+  const PerguntaAPP({Key? key}) : super(key: key);
+
+  @override
+  _PerguntaAppState createState() {
+    return _PerguntaAppState();
   }
-
-  Widget _bordaSenha(TextEditingController controller, String label) {
-    return _bordaa(
-      child: TextField(
-        controller: controller,
-        obscureText: !_mostrarSenha,
-        decoration: InputDecoration(
-          labelText: label,
-          border: InputBorder.none,
-          suffixIcon: IconButton(
-            icon: Icon(_mostrarSenha ? Icons.visibility : Icons.visibility_off),
-            onPressed: () {
-              setState(() {
-                _mostrarSenha = !_mostrarSenha;
-              });
-            },
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _bordaa({required Widget child}) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade600),
-        borderRadius: BorderRadius.circular(4.0),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: child,
-      ),
-    );
-  }
-
-  Widget _criarBotaoEsqueciSenha() {
-    return TextButton(
-      onPressed: () {
-        print('Clicado');
-      },
-      style: TextButton.styleFrom(
-        padding: EdgeInsets.zero,
-      ),
-      child: Container(
-        alignment: Alignment.center,
-        child: const Text(
-          'ESQUECI MINHA SENHA',
-          style: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
-            color: Color.fromARGB(255, 0, 105, 55),
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ),
-    );
-  }
-
-  Widget _criarBotao(String label, Color cor, VoidCallback onPressed) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(9.0),
-        color: cor,
-      ),
-      child: TextButton(
-        onPressed: onPressed,
-        style: TextButton.styleFrom(
-          padding: const EdgeInsets.symmetric(
-            vertical: 12.0,
-            horizontal: 150,
-          ),
-        ),
-        child: Text(
-          label,
-          style: const TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
-            color: Color.fromARGB(255, 255, 255, 255),
-          ),
-        ),
-      ),
-    );
-  }
-
-  void setState(Null Function() param0) {}
 }
